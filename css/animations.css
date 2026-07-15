@@ -1,0 +1,105 @@
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(56, 217, 199, 0.22);
+  }
+
+  50% {
+    box-shadow: 0 0 0 12px rgba(56, 217, 199, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+.portrait-wrap {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.orbit-badge {
+  animation: floatY 5.5s ease-in-out infinite;
+}
+
+.badge-powerbi {
+  animation-delay: 900ms;
+}
+
+.badge-sql {
+  animation-delay: 1500ms;
+}
+
+.timeline-dot {
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+.btn-primary,
+.brand-mark {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after,
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 36%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.48), transparent);
+  transform: translateX(-120%);
+  animation: shimmer 3.8s ease-in-out infinite;
+}
+
+.skill-card,
+.project-card,
+.metric {
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.skill-card:hover,
+.project-card:hover,
+.metric:hover {
+  transform: translateY(-8px);
+  border-color: rgba(56, 217, 199, 0.48);
+}
+
+.nav-toggle.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
